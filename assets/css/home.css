@@ -1,0 +1,137 @@
+/* styling the body of the whole list app */
+#outer-container {
+    background-color: white;
+    width: 45vw;
+    margin: auto;
+}
+/* styling the heading of list app */
+#heading {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 3%;
+    padding-bottom: 0;
+    border-bottom:1px solid black;
+    text-align: center;
+}
+/*  */
+h2 {
+    font-size: 1.9rem;
+    margin-top: 0px;
+    color: grey;
+}
+/* styling the body tag*/
+body {
+    margin-top: 0;
+    background-color: grey;
+}
+/* styling the inputs of form */
+.input {
+    border: 0;
+    padding: 1%;
+}
+/* styling the label corresponding to the inputs of the form */
+.label {
+    margin-left: 6px;
+    font-size: 0.9rem;
+}
+/* styling the container holding the inputs */
+#div1, #div21, #div22{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    padding: 1%;
+}
+#div2 {
+    display: flex;
+}
+#div21, #div22 {
+    width: 50%;
+    border: 1px solid black;
+    border-top: 0;
+}
+
+/* styling the container holding add task and delete task buttons */
+#btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+/* styling the add button */
+#add-button {
+    background-color: black;
+    width: 160px;
+    padding: 3%;
+    font-size: 1.1rem;
+    color: white;
+    height: 50px;
+}
+/* styling the delete button */
+#delete-button {
+    background-color: red;
+    width: 160px;
+    padding: 3%;
+    font-size: 1.1rem;
+    color: white;
+    margin-left: 10px;
+    height: 50px;
+}
+#delete-button i {
+    margin-right: 2px;
+}
+/* styling the list which shows the description, date and category of a task */
+#list {
+    list-style: none;
+}
+#small-container {
+    display: flex;
+}
+#small-container input {
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: 10px;
+}
+#list-info {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+.cat-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100px;
+    position: relative;
+    top: 20px;
+}
+/* styling the category and assigning different colors based on the category */
+#one {
+    background-color: lavender;
+}
+#two {
+    background-color: aquamarine;
+}
+#three {
+    background-color:beige;
+}
+#four {
+    background-color:seashell;
+}
+#five {
+    background-color:mistyrose;
+}
+
+#small-container input{
+    background-color: aqua;
+    background-color: black;
+}
+#list-info {
+    border-bottom: 1px solid black;
+}
+#date i {
+    margin-right: 8px;
+}
+#small-container {
+    margin-bottom: 3px;
+}

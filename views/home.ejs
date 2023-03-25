@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- Include font awesome -->
+    <script src="https://kit.fontawesome.com/595caf6da5.js" crossorigin="anonymous"></script>
+    <!-- Include own css -->
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <!-- Container holding the complete Task list -->
+    <div id = "outer-container">
+        <!-- container holding the heading -->
+        <div id = "heading">
+            <h2>TODO App</h2>
+        </div>
+        <!-- Form to collect the data from the browser  -->
+        <!-- the action indicates where we want out form's data to get submitted -->
+        <form action="/create-list" method="POST">
+            <!-- container to hold the description and date of the Task List -->
+            <div id = "div1">
+                <label for="description" class = "label">DESCRIPTION</label>
+                <input type="text" class = "input" name = "description" id = "description" placeholder="What do you need to do?">
+            </div>
+            <div id = "div2">
+                <!-- Dropdown to select the category -->
+                <div id = "div21">
+                    <label for="category" class = "label">CATEGORY</label>
+                    <select name = "category" class = "input" id="category">
+                        <option value="none">Choose a category</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="School">School</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <!-- Container to select the date  -->
+                <div id = "div22">
+                    <label for = "date" class = "label">DUE DATE</label>
+                    <input type = "date" class = "input" id = "date" name = "date" placeholder="enter date">
+                </div >
+            </div>
+            <!-- Container to hold the buttons  -->
+         <div id = "btn-container">
+            <!-- Container containing Add Task button -->
+            <div id = "button-holder">
+                <button type = "submit" id = "add-button">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Task
+                </button>
+            </div>
+        </form>
+        <!-- Another form to delete the task from task list -->
+        <form action = "/delete-list" method = "GET" >
+            <!-- Container to hold button to delete task -->
+            <button type = "submit" id = "delete-button">
+                <i class="fa-solid fa-trash-can"></i>
+                Delete Tasks
+            </button>
+         </div>
+         <!-- Container to print a list of Task which container description, date, category -->
+            <div>
+                <ul id = "list">
+                    <!-- for loop to iterate over the list of tasks -->
+                    <% for (let i of taskList) { %>
+                        <li id = "inner-list">
+                            <!-- container to hold a task and a checkbox -->
+                            <div id = "small-container">
+                                <!-- input type-checkbox to select and delete multiple tasks as well -->
+                                <!-- form sends the data in key value pair -->
+                                <!-- we have the value as the id which will be helpful to delete the task -->
+                                <!-- method get prints the data collected in url  -->
+                                <!-- we can use request.query to access the id's -->
+                                <input type="checkbox" name = "<%= i._id %>"> 
+                                <div id = "list-info">
+                                    <!-- container holding description and date -->
+                                    <div id = "list-info-1">
+                                        <p class = "description-text"> <%= i.description %></p>
+                                        <p id = "date"> <i class="fa-regular fa-calendar-days"></i> <%= i.date %></p>
+                                    </div>
+                                    <!-- container holding the category -->
+                                    <div id = "list-info-2">
+                                        <!-- styling the category -->
+                                        <div class = "helper1">
+                                            <% if (i.category == "Personal") { %>
+                                               <span class = "cat-box" id = "one"> <%= i.category%> </span>
+                                            <% } %>
+                                        </div>
+                                        <div class = "helper1">
+                                            <% if (i.category == "Work") { %>
+                                               <span class = "cat-box" id = "two"> <%= i.category%> </span>
+                                            <% } %>
+                                        </div>
+                                        <div class = "helper1">
+                                            <% if (i.category == "School") { %>
+                                               <span class = "cat-box" id = "three"> <%= i.category%> </span>
+                                            <% } %>
+                                        </div>
+                                        <div class = "helper1">
+                                            <% if (i.category == "Cleaning") { %>
+                                               <span class = "cat-box" id = "four"> <%= i.category%> </span>
+                                            <% } %>
+                                        </div>
+                                        <div class = "helper1">
+                                            <% if (i.category == "Other") { %>
+                                               <span class = "cat-box" id = "five"> <%= i.category%> </span>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <!-- including  jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <!-- including own javascript file -->
+    <script src = "/js/home.js"></script>
+</body>
+</html>
